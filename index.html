@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Manish Kesherwani - Computational Biophysicist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d5a87;
+            --accent: #00d9ff;
+            --text: #333;
+            --light: #f7fafc;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease 0.2s both;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 1s ease;
+        }
+
+        .profile-circle {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-item {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        /* Publications */
+        .publication {
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .publication h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .journal {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .impact-factor {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.2rem 0.5rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        /* Research Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        /* Awards */
+        .award {
+            background: linear-gradient(45deg, #ffd700, #ffed4a);
+            color: var(--text);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hidden sections for animation */
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Dr. Manish Kesherwani</h1>
+                    <p class="subtitle">Computational Biophysicist & Structural Bioinformatician</p>
+                    <p>5+ Years Postdoctoral Research Experience | R&D Manager at Nuvo AI</p>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-circle">
+                        <div style="font-size: 4rem;">🧬</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#research" class="nav-link">Research</a></li>
+                    <li><a href="#publications" class="nav-link">Publications</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#awards" class="nav-link">Awards</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="card">
+                        <p>I am a computational biophysicist with over 5 years of postdoctoral research experience under the guidance of Prof. Florence TAMA at ITbM, Nagoya University, Japan. I earned my Ph.D. in structural bioinformatics in 2019 under Prof. D. Velmurugan at the University of Madras, Chennai, India.</p>
+                        
+                        <p>My research focuses on computational drug design, structural modeling, and molecular dynamics simulations to advance our understanding of protein-ligand complexes for drug development. I have extensive experience in integrating AI-driven techniques with traditional computational methodologies to accelerate drug discovery.</p>
+                        
+                        <p>Currently, I lead R&D efforts at Nuvo AI, working on AI-based drug discovery platforms and antibody design against cancer. My work spans multiple domains including circadian clock proteins, membrane biophysics, and multidrug resistance transporters.</p>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>manish221288@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>+91-9841135618</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>🎓</span>
+                            <span>Google Scholar: h-index 11</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📄</span>
+                            <span>24 Publications, 431 Citations</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>R&D Manager</h3>
+                        <p><strong>Nuvo AI</strong> | March 2025 - Present</p>
+                        <p>Leading R&D evaluation of AI-based drug discovery platform and designing antibodies against cancer.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Post-Doctoral Researcher</h3>
+                        <p><strong>Institute of Transformative Biomolecules (ITbM), Nagoya University, Japan</strong> | 2019-2025</p>
+                        <p>Research under Prof. Florence TAMA focusing on computational drug design, molecular dynamics simulations, and AI-driven drug discovery techniques.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Ph.D. Researcher</h3>
+                        <p><strong>CAS in Crystallography & Biophysics, University of Madras</strong> | 2013-2019</p>
+                        <p>Thesis: "Molecular modelling and Molecular dynamics simulations of some biological macromolecules"</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Researcher</h3>
+                        <p><strong>Indo-Japan Collaborative Project</strong> | 2011-2013</p>
+                        <p>Research at CAS in Crystallography & Biophysics, University of Madras</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Section -->
+            <section id="research" class="section">
+                <h2 class="section-title">Key Research Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>CRY2 Circadian Clock Modulator</h3>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Collaboration:</strong> Prof. Hirota group, ITbM</p>
+                            <p><strong>Publication:</strong> PNAS 2022</p>
+                            <p>Investigated CRY2 isoform selectivity of circadian clock modulator SHP656 with anti-glioblastoma efficacy using multiple MD simulations.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>NIR Fluorogenic Probes</h3>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Collaboration:</strong> Prof. Yamaguchi group, ITbM</p>
+                            <p><strong>Publication:</strong> Angewandte Chemie 2024</p>
+                            <p>Analyzed molecular stereoisomerism effects in developing photostable NIR probes for long-term imaging using membrane MD simulations.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>AI-Driven CRY2 Antagonists</h3>
+                        </div>
+                        <div class="project-content">
+                            <p><strong>Status:</strong> Manuscript in preparation</p>
+                            <p>Applied unsupervised machine learning and structure-based virtual screening to identify novel CRY2 antagonists for circadian rhythm disorders.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Membrane Phosphatase PgpB</h3>
+                        </div>
+                        <div class="project-content">
+                            <p>Elucidated dynamic coupling between transmembrane and periplasmic domains using residual fluctuation networks and MD simulations.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>TPP Riboswitch Dynamics</h3>
+                        </div>
+                        <div class="project-content">
+                            <p>Applied Markov state modeling to understand conformational changes and allosteric communication in TPP riboswitch recognition.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>UBIAD1 Prenyltransferase</h3>
+                        </div>
+                        <div class="project-content">
+                            <p>Investigated prenylation activity and impact of mutations in Schnyder corneal dystrophy using computational approaches.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="section">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="card">
+                    <div class="publication">
+                        <h4>Stereochemistry-Dependent Labeling of Organelles with a Near-Infrared-Emissive Phosphorus-Bridged Rhodamine Dye in Live-Cell Imaging</h4>
+                        <p class="journal">Angewandte Chemie <span class="impact-factor">IF: 16.6</span></p>
+                        <p>2024 | Co-author</p>
+                    </div>
+
+                    <div class="publication">
+                        <h4>CRY2 isoform selectivity of circadian clock modulator with anti-glioblastoma efficacy</h4>
+                        <p class="journal">Proceedings of National Academy of Sciences <span class="impact-factor">IF: 11.20</span></p>
+                        <p>2022 | Second author</p>
+                    </div>
+
+                    <div class="publication">
+                        <h4>Conformational Dynamics of thiM Riboswitch to understand Gene Regulation Mechanism using Markov State Modeling</h4>
+                        <p class="journal">Journal of Chemical Information and Modeling <span class="impact-factor">IF: 3.76</span></p>
+                        <p>2018 | First author</p>
+                    </div>
+
+                    <div class="publication">
+                        <h4>Molecular insights into substrate binding mechanism of undecaprenyl pyrophosphate with membrane integrated PgpB</h4>
+                        <p class="journal">Journal of Biomolecular Structure and Dynamics <span class="impact-factor">IF: 3.12</span></p>
+                        <p>2018 | First author</p>
+                    </div>
+
+                    <div class="publication">
+                        <h4>Identification of novel Nicotinamide Phosphoribosyltransferase (NAMPT) inhibitors using computational approaches</h4>
+                        <p class="journal">Journal of Biomolecular Structure & Dynamics <span class="impact-factor">IF: 3.12</span></p>
+                        <p>2018 | First author</p>
+                    </div>
+
+                    <p style="text-align: center; margin-top: 2rem;">
+                        <strong>Total:</strong> 24 publications | <strong>Citations:</strong> 431 | <strong>h-index:</strong> 11
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <h2 class="section-title">Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="card">
+                        <div class="skill-category">
+                            <h3>Molecular Dynamics Simulations</h3>
+                            <span class="skill-item">GROMACS</span>
+                            <span class="skill-item">CHARMM</span>
+                            <span class="skill-item">AMBER</span>
+                            <span class="skill-item">NAMD</span>
+                            <span class="skill-item">GENESIS</span>
+                            <span class="skill-item">Enhanced Sampling</span>
+                            <span class="skill-item">Replica Exchange</span>
+                            <span class="skill-item">Umbrella Sampling</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="skill-category">
+                            <h3>Drug Discovery & CADD</h3>
+                            <span class="skill-item">Schrödinger Suite</span>
+                            <span class="skill-item">Discovery Studio</span>
+                            <span class="skill-item">AutoDock</span>
+                            <span class="skill-item">Cresset Flare</span>
+                            <span class="skill-item">ADMET Prediction</span>
+                            <span class="skill-item">Pharmacophore Modeling</span>
+                            <span class="skill-item">Lead Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="skill-category">
+                            <h3>Structural Modeling</h3>
+                            <span class="skill-item">AlphaFold</span>
+                            <span class="skill-item">Modeller</span>
+                            <span class="skill-item">Rosetta</span>
+                            <span class="skill-item">Homology Modeling</span>
+                            <span class="skill-item">Ab initio Modeling</span>
+                            <span class="skill-item">Antibody Modeling</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="skill-category">
+                            <h3>Programming & Analysis</h3>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">MATLAB</span>
+                            <span class="skill-item">Perl</span>
+                            <span class="skill-item">Machine Learning</span>
+                            <span class="skill-item">Chemoinformatics</span>
+                            <span class="skill-item">Data Analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="skill-category">
+                            <h3>Advanced Techniques</h3>
+                            <span class="skill-item">Free Energy Methods</span>
+                            <span class="skill-item">GIST Analysis</span>
+                            <span class="skill-item">Markov State Modeling</span>
+                            <span class="skill-item">Network Analysis</span>
+                            <span class="skill-item">Virtual Screening</span>
+                            <span class="skill-item">AI Drug Discovery</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="skill-category">
+                            <h3>Experimental Integration</h3>
+                            <span class="skill-item">Cryo-EM</span>
+                            <span class="skill-item">SAXS</span>
+                            <span class="skill-item">HDX-MS</span>
+                            <span class="skill-item">XFEL</span>
+                            <span class="skill-item">ITC</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards Section -->
+            <section id="awards" class="section">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <div class="card">
+                    <div class="award">
+                        🏆 ITbM Research Award 2024 - Best project proposal for innovative circadian clock drug discovery
+                    </div>
+                    <div class="award">
+                        🎓 DST-PURSE-JRF Research Fellowship 2014
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 2rem; color: var(--primary);">Research Interests</h3>
+                <div class="card">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 1rem;">🎯 Structure-based small molecule hit finding and lead optimization for therapeutic targets</li>
+                        <li style="margin-bottom: 1rem;">🧬 Antibody design and engineering using AI and molecular modeling techniques</li>
+                        <li style="margin-bottom: 1rem;">⚡ Molecular dynamics simulations and Markov state modeling of biomolecular complexes</li>
+                        <li style="margin-bottom: 1rem;">🔗 Molecular understanding of non-covalent contacts network for allosteric regulations</li>
+                        <li style="margin-bottom: 1rem;">💧 Role of crystal water and solvation in ligand binding affinity improvement</li>
+                        <li style="margin-bottom: 1rem;">🧪 Integration of MD ensembles with experimental data (CryoEM, SAXS, XFEL)</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dr. Manish Kesherwani. All rights reserved.</p>
+            <p>Computational Biophysicist & Structural Bioinformatician</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Smooth scroll to target
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Update active navigation based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.card, .project-card, .timeline-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Initialize first section as active
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.nav-link[href="#about"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
