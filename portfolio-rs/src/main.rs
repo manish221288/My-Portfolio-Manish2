@@ -8,6 +8,7 @@ use components::about::About;
 use components::experience::Experience;
 use components::expertise::Expertise;
 use components::publications::Publications;
+use components::conferences::Conferences;
 use components::skills::Skills;
 use components::footer::Footer;
 
@@ -22,6 +23,7 @@ fn App() -> impl IntoView {
                 <Experience />
                 <Expertise />
                 <Publications />
+                <Conferences />
                 <Skills />
             </div>
         </main>

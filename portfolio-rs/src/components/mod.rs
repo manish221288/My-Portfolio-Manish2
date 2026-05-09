@@ -4,5 +4,6 @@ pub mod about;
 pub mod experience;
 pub mod expertise;
 pub mod publications;
+pub mod conferences;
 pub mod skills;
 pub mod footer;

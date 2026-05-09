@@ -11,6 +11,7 @@ pub fn Nav() -> impl IntoView {
                         <li><a href="#experience" class="nav-link">"Experience"</a></li>
                         <li><a href="#expertise" class="nav-link">"Expertise"</a></li>
                         <li><a href="#publications" class="nav-link">"Publications"</a></li>
+                        <li><a href="#conferences" class="nav-link">"Presentations"</a></li>
                         <li><a href="#skills" class="nav-link">"Skills"</a></li>
                     </ul>
                 </div>
