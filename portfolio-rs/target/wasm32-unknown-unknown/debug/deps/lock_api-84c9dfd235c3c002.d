@@ -1,0 +1,10 @@
+/Users/manishkesherwani/Desktop/MM/Allahabad/My-Portfolio-Manish2/portfolio-rs/target/wasm32-unknown-unknown/debug/deps/lock_api-84c9dfd235c3c002.d: /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/Users/manishkesherwani/Desktop/MM/Allahabad/My-Portfolio-Manish2/portfolio-rs/target/wasm32-unknown-unknown/debug/deps/liblock_api-84c9dfd235c3c002.rlib: /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/Users/manishkesherwani/Desktop/MM/Allahabad/My-Portfolio-Manish2/portfolio-rs/target/wasm32-unknown-unknown/debug/deps/liblock_api-84c9dfd235c3c002.rmeta: /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs:
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs:
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs:
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs:

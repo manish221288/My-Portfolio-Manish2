@@ -1,0 +1,10 @@
+[package]
+name = "portfolio-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+leptos = { version = "0.7.3", features = ["csr"] }
+console_error_panic_hook = "0.1.7"
+web-sys = { version = "0.3.70", features = ["Window", "Document", "Element", "HtmlElement"] }
+serde = { version = "1.0", features = ["derive"] }

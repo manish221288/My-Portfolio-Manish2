@@ -1,0 +1,10 @@
+/Users/manishkesherwani/Desktop/MM/Allahabad/My-Portfolio-Manish2/portfolio-rs/target/debug/deps/lock_api-61a109e70f1a4e39.d: /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/Users/manishkesherwani/Desktop/MM/Allahabad/My-Portfolio-Manish2/portfolio-rs/target/debug/deps/liblock_api-61a109e70f1a4e39.rlib: /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/Users/manishkesherwani/Desktop/MM/Allahabad/My-Portfolio-Manish2/portfolio-rs/target/debug/deps/liblock_api-61a109e70f1a4e39.rmeta: /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs /Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs
+
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/lib.rs:
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/mutex.rs:
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/remutex.rs:
+/Users/manishkesherwani/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lock_api-0.4.14/src/rwlock.rs:

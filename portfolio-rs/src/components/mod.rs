@@ -1,0 +1,8 @@
+pub mod nav;
+pub mod hero;
+pub mod about;
+pub mod experience;
+pub mod expertise;
+pub mod publications;
+pub mod skills;
+pub mod footer;
